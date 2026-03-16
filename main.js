@@ -100,11 +100,11 @@ function populateVersions(){
   versionSelect.innerHTML = '<option value="">-- Select -- </option>';
   resultDiv.innerHTML = "";
   promptBox.style.display = "none";
-  inputContainer.innerHTML = "";
-  checkBtn.style.display = "none;
+  inputsContainer.innerHTML = "";
+  checkBtn.style.display = "none";
   lockedCorrect = [];
 
-  const partData = getPartDataq();
+  const partData = getPartData();
   if(!partData) return;
 
   Object.keys(partData.versions)
