@@ -1,33 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Interactive Topic Selector</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EM2 Homework Checker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f1923;
+      color: #e0e6ed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.05em;
+      color: #7ecfff;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .card {
+      background: #162030;
+      border: 1px solid #2a3f55;
+      border-radius: 12px;
+      padding: 1.8rem;
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      color: #7ecfff;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+
+    select, input[type="number"], input[type="text"] {
+      width: 100%;
+      background: #0f1923;
+      border: 1px solid #2a3f55;
+      border-radius: 6px;
+      color: #e0e6ed;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    select:focus, input:focus { border-color: #7ecfff; }
+
+    #prompt-box {
+      background: #0d1e2e;
+      border-left: 3px solid #7ecfff;
+      border-radius: 6px;
+      padding: 0.9rem 1rem;
+      margin: 1.2rem 0;
+      font-size: 0.92rem;
+      line-height: 1.5;
+      color: #b0cce0;
+      display: none;
+    }
+
+    .type-hint {
+      font-size: 0.72rem;
+      color: #4a7a9b;
+      margin-top: 0.2rem;
+      font-style: italic;
+    }
+
+    #inputs-container { margin-bottom: 1rem; }
+    .input-group { margin-bottom: 0.9rem; }
+
+    button#check-btn {
+      width: 100%;
+      background: #1a6fa8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+
+    button#check-btn:hover { background: #2389d0; }
+
+    #result { margin-top: 1.2rem; font-size: 0.95rem; line-height: 1.6; }
+
+    .result-row {
+      padding: 0.45rem 0.7rem;
+      border-radius: 5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .correct   { background: #0d3320; color: #4cdb8a; }
+    .incorrect { background: #3a0d0d; color: #ff6b6b; }
+    .empty     { background: #2a2200; color: #f0c040; }
+  </style>
 </head>
-
 <body>
+  <h1>⚡ EM2 Homework Checker</h1>
 
-<h2>Select a Topic</h2>
+  <div class="card">
+    <div class="row">
+      <div>
+        <label for="hw-select">Homework #</label>
+        <select id="hw-select">
+          <option value="">-- Select --</option>
+          <option value="3">Homework 3</option>
+          <!-- ADD: <option value="4">Homework 4</option> -->
+        </select>
+      </div>
+      <div>
+        <label for="version-select">Version</label>
+        <select id="version-select">
+          <option value="">-- Select --</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+      </div>
+    </div>
 
-<label>Category:</label>
-<select id="categorySelect"></select>
+    <div class="row">
+      <div>
+        <label for="q-select">Question #</label>
+        <select id="q-select"><option value="">-- Select --</option></select>
+      </div>
+      <div>
+        <label for="part-select">Part</label>
+        <select id="part-select"><option value="">-- Select --</option></select>
+      </div>
+    </div>
 
-<br><br>
+    <div id="prompt-box"></div>
+    <div id="inputs-container"></div>
 
-<label>Subcategory:</label>
-<select id="subCategorySelect"></select>
+    <button id="check-btn" style="display:none">Check Answer</button>
+    <div id="result"></div>
+  </div>
 
-<label>Version:</label>
-<select id="versionSelect"></select>
+  <!-- Guide files: add one line per homework set -->
+  <script src="homework3/guide.js"></script>
+  <!-- <script src="homework4/guide.js"></script> -->
 
-<label>>Part:</label>
-<select id ="partSelect"></select>
-
-<br><br>
-
-<div id="content"></div>
-
-<script type="module" src="main.js"></script>
-
+  <script src="main.js"></script>
 </body>
 </html>
