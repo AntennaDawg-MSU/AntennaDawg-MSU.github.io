@@ -89,7 +89,32 @@ qSelect.addEventListener("change", () => {
     });
 });
 
-partSelect.addEventListener("change",  renderInputs);
+partSelect.addEventListener("change", ()=>{ 
+  populateVersions();
+  renderInputs();
+});
+
+function populateVersions(){
+  versionSelect.innerHTML = '<option value="">-- Select -- </option>';
+  resultDiv.innerHTML = "";
+  promptBox.style.display = "none";
+  inputContainer.innerHTML = "";
+  checkBtn.style.display = "none;
+  lockedCorrect = [];
+
+  const partData = getPartDataq();
+  if(!partData) return;
+
+  Object.keys(partData.versions)
+    .sort()
+    .forEach(v => {
+      const opt = document.createElement("option");
+      opt.value       = v;
+      opt.textContent = `Version ${v.toUpperCase()}`;
+      versionSelect.appendChild(opt);
+    });
+  
+}
 versionSelect.addEventListener("change", renderInputs);
 
 // ── Render input fields ────────────────────────────────────────────────────
