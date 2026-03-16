@@ -45,9 +45,11 @@ function resetBelow(level) {
   if (level === "hw") {
     qSelect.innerHTML    = '<option value="">-- Select --</option>';
     partSelect.innerHTML = '<option value="">-- Select --</option>';
+    versionSelect.innerHTML = '<option value="">-- Select --</option>';
   }
   if (level === "hw" || level === "q") {
     partSelect.innerHTML = '<option value="">-- Select --</option>';
+    versionSelect.innerHTML = '<option value="">-- Select --</option>';
   }
   promptBox.style.display   = "none";
   inputsContainer.innerHTML = "";
