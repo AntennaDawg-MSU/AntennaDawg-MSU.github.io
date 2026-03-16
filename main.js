@@ -74,5 +74,6 @@ categorySelect.addEventListener("change", loadSubCategories);
 
 
 // ----- START -----
-
+document.addEventListener("DOMContentLoaded",function(){
 loadCategories();
+});
