@@ -1,6 +1,7 @@
 const categorySelect = document.getElementById("categorySelect");
 const subCategorySelect = document.getElementById("subCategorySelect");
 const versionSelect = document.getElementById("versionSelect");
+const partSelect = document.getElementById("partSelect");
 
 const categories = {
     "Homework 3": "./homework3/guide.js"
