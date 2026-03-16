@@ -3,7 +3,7 @@ const subCategorySelect = document.getElementById("subCategorySelect");
 const versionSelect = document.getElementById("versionSelect");
 
 const categories = {
-    "Homework 3": "./data/homework3.js"
+    "Homework 3": "./homework3/guide.js"
 };
 
 let currentData = null;
