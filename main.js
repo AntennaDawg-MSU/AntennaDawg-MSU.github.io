@@ -81,15 +81,15 @@ qSelect.addEventListener("change", () => {
   const q     = qSelect.value;
   if (!guide || !q) return;
 
-  Object.keys(guide.questions[q])
-    .sort()
-    .forEach(p => {
-      const opt = document.createElement("option");
-      opt.value = p;
-      opt.textContent = `Part ${p.toUpperCase()}`;
-      partSelect.appendChild(opt);
-    });
-  Default .sort() results ["I","II","III","IV","V"]
+  const parts = Object.keys(guide.questions[q]);
+  console.log("parts found:", parts);  // check this in debugger
+
+  parts.forEach(p => {
+    const opt = document.createElement("option");
+    opt.value = p;
+    opt.textContent = `Part ${p}`;   // removed .toUpperCase() — Roman numerals are already uppercase
+    partSelect.appendChild(opt);
+  });
 });
 
 partSelect.addEventListener("change", ()=>{ 
