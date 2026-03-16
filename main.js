@@ -2,24 +2,7 @@
 
 const topics = {
 
-    "Homework 3": [
-        "Question 1",
-        "Question 2",
-        "Question 3"
-    ],
-
-    "Mathematics": [
-        "Calculus",
-        "Linear Algebra",
-        "Differential Equations"
-    ],
-
-    "Programming": [
-        "Python",
-        "JavaScript",
-        "MATLAB"
-    ]
-
+    "Homework 3": ".homework3/guide.js"
 };
 
 
@@ -27,6 +10,7 @@ const topics = {
 
 const categorySelect = document.getElementById("categorySelect");
 const subCategorySelect = document.getElementById("subCategorySelect");
+const versionSelect = document.getElementById("versionSelect");
 
 
 // ----- INITIALIZE CATEGORY DROPDOWN -----
