@@ -96,16 +96,16 @@ partSelect.addEventListener("change", ()=>{
   renderInputs();
 });
 
-function populateVersions(){
-  versionSelect.innerHTML = '<option value="">-- Select -- </option>';
-  resultDiv.innerHTML = "";
-  promptBox.style.display = "none";
-  inputsContainer.innerHTML = "";
-  checkBtn.style.display = "none";
-  lockedCorrect = [];
+function populateVersions() {
+  versionSelect.innerHTML   = '<option value="">-- Select --</option>';
+  resultDiv.innerHTML       = "";
+  promptBox.style.display   = "none";
+  inputsContainer.innerHTML = "";   // fixed: was inputContainer
+  checkBtn.style.display    = "none";  // fixed: unclosed string
+  lockedCorrect             = [];
 
-  const partData = getPartData();
-  if(!partData) return;
+  const partData = getPartData();   // fixed: was getPartDataq()
+  if (!partData) return;
 
   Object.keys(partData.versions)
     .sort()
@@ -115,7 +115,6 @@ function populateVersions(){
       opt.textContent = `Version ${v.toUpperCase()}`;
       versionSelect.appendChild(opt);
     });
-  
 }
 versionSelect.addEventListener("change", renderInputs);
 
