@@ -89,6 +89,7 @@ qSelect.addEventListener("change", () => {
       opt.textContent = `Part ${p.toUpperCase()}`;
       partSelect.appendChild(opt);
     });
+  Default .sort() results ["I","II","III","IV","V"]
 });
 
 partSelect.addEventListener("change", ()=>{ 
