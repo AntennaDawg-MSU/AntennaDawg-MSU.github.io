@@ -1,5 +1,5 @@
 // homework3/guide.js
-wildonw.HomeworkGuides = window.homeworkGuides || {};
+window.homeworkGuides = window.homeworkGuides || {};
 
 window.homeworkGuides[3] = {
   title: "Homework 3",
