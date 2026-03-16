@@ -5,9 +5,5 @@ export const homework3 = {
 };
 
 export const part = {
-  "I",
-  "II",
-  "III",
-  "IV",
-  "V"
+  ["I","II","III","IV","V"]
 }
