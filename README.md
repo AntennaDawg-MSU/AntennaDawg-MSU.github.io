@@ -1,12 +1,2 @@
 # AntennaDawg-MSU.github.io
-<!DOCTYPE html>
-<html>
-<body>
-  <label for="options-select">Choose an option:</label>
-<select name="options" id="options-select">
-    <option value="">--Please choose an option--</option>
-    <!-- Options will be added by JavaScript -->
-</select>
-<p>Selected Value: <span id="selected-value"></span></p>
-</body>  
-</html>
+
