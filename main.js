@@ -11,7 +11,8 @@ let currentData = null;
 
 // Populate category dropdown
 function loadCategories(){
-    console.log(module)
+    const module = await import(categories[selected]);
+    console.log(module);
     for (let category in categories){
 
         let option = document.createElement("option");
