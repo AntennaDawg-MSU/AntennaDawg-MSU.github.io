@@ -199,9 +199,11 @@ checkBtn.addEventListener("click", () => {
     resultDiv.appendChild(resultRow);
   });
 
-  if (allCorrect || lockedCorrect.length === partData.inputs.length) {
-    checkBtn.textContent      = "✔ All Correct!";
-    checkBtn.style.background = "#0d6e3f";
-    checkBtn.disabled         = true;
+// ADD this instead:
+  if (lockedCorrect.length === partData.inputs.length) {
+    const banner = document.createElement("div");
+    banner.className  = "result-row correct";
+    banner.textContent = "🎉 All answers correct!";
+    resultDiv.appendChild(banner);
   }
 });
