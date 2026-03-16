@@ -1,10 +1,27 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Topic Selector</title>
+</head>
+
 <body>
-  <label for="options-select">Choose an option:</label>
-<select name="options" id="options-select">
-    <option value="">--Please choose an option--</option>
-    <!-- Options will be added by JavaScript -->
-</select>
-<p>Selected Value: <span id="selected-value"></span></p>
-</body>  
+
+<h2>Select a Topic</h2>
+
+<label>Category:</label>
+<select id="categorySelect"></select>
+
+<br><br>
+
+<label>Subcategory:</label>
+<select id="subCategorySelect"></select>
+
+<br><br>
+
+<div id="content"></div>
+
+<script src="main.js"></script>
+
+</body>
 </html>
