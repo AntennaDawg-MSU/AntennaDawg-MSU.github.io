@@ -5,42 +5,73 @@ window.homeworkGuides[3] = {
   title: "Homework 3",
   questions: {
     1: {
-      a: {
-        prompt: "Enter the electric field magnitude E (V/m) and its direction angle θ (degrees).",
+      I: {
+        prompt: "Is this loop considered small?",
         inputs: [
-          { label: "E (V/m)",      type: "number", tolerance: 0.02 },
-          { label: "θ (degrees)",  type: "number", tolerance: 0.01 }
+          { label: "Answer (Yes or No):",      type: "text"}
         ],
         versions: {
-          1: [120.5, 45],
-          2: [98.3,  60],
-          3: [145.0, 30],
-          4: [110.2, 90]
+          a: ["Yes"],
+          b: ["Yes"],
+          c: ["Yes"],
+          d: ["Yes"],
+          e: ["Yes"]
         }
       },
-      b: {
-        prompt: "Enter the magnetic flux density B (T).",
+      II: {
+        prompt: "What is the loop radiation resistance?",
         inputs: [
-          { label: "B (T)", type: "number", tolerance: 0.02 }
+          { label: "mOhms", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          1: [0.034],
-          2: [0.021],
-          3: [0.048],
-          4: [0.015]
+          a: [99.806],
+          b: [23.996],
+          c: [32.193],
+          d: [26.911],
+          e: [97.294]
         }
       },
-      c: {
-        prompt: "What type of field is produced by a static electric charge? (e.g. 'electric', 'magnetic', 'gravitational')",
+      III: {
+        prompt: "What is the loop loss resistance?",
         inputs: [
-          { label: "Field type", type: "text" }
+          { label: "mOhms", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          1: ["electric"],
-          2: ["electric"],
-          3: ["electric"],
-          4: ["electric"]
+          a: [1265.518],
+          b: [97.515],
+          c: [1866.258],
+          d: [1241.23],
+          e: [299.825]
         }
+        
+      },
+      IV: {
+        prompt: "What is efficiency?",
+        inputs: [
+          { label: "%", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [7.31],
+          b: [19.748],
+          c: [1.696],
+          d: [2.122],
+          e: [24.5]
+        }
+        
+      },
+      V: {
+        prompt: "What is the current?",
+        inputs: [
+          { label: "%", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [8.525],
+          b: [4.071],
+          c: [3.282],
+          d: [5.325],
+          e: [2.968]
+        }
+        
       }
     },
     2: {
