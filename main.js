@@ -105,7 +105,18 @@ function populateVersions() {
   lockedCorrect             = [];
 
   const partData = getPartData();   // fixed: was getPartDataq()
+  console.log("populateVersions called, partData:", partData)
   if (!partData) return;
+
+  const versionKeys = Object.keys(partData.versions);
+  console.log("version keys:", versionKeys); // ADD THIS
+
+  versionKeys.sort().forEach(v => {
+    const opt = document.createElement("option");
+    opt.value       = v;
+    opt.textContent = `Version ${v.toUpperCase()}`;
+    versionSelect.appendChild(opt);
+  });
 
   Object.keys(partData.versions)
     .sort()
