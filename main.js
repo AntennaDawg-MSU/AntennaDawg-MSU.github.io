@@ -203,7 +203,6 @@ checkBtn.addEventListener("click", () => {
   if (lockedCorrect.length === partData.inputs.length) {
     const banner = document.createElement("div");
     banner.className  = "result-row correct";
-    banner.textContent = "🎉 All answers correct!";
     resultDiv.appendChild(banner);
   }
 });
