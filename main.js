@@ -1,23 +1,18 @@
-// ----- DATA STRUCTURE -----
-
-const topics = {
-
-    "Homework 3": ".homework3/guide.js"
-};
-
-
-// ----- GET ELEMENTS -----
-
 const categorySelect = document.getElementById("categorySelect");
 const subCategorySelect = document.getElementById("subCategorySelect");
 const versionSelect = document.getElementById("versionSelect");
 
+const categories = {
+    "Homework 3": "./data/homework3.js"
+};
 
-// ----- INITIALIZE CATEGORY DROPDOWN -----
+let currentData = null;
 
-function loadCategories() {
 
-    for (let category in topics) {
+// Populate category dropdown
+function loadCategories(){
+
+    for (let category in categories){
 
         let option = document.createElement("option");
         option.value = category;
@@ -25,39 +20,67 @@ function loadCategories() {
 
         categorySelect.appendChild(option);
     }
-
-    loadSubCategories();
 }
 
 
-// ----- LOAD SUBCATEGORIES -----
+// Load category file
+async function loadCategory(){
 
-function loadSubCategories() {
+    const selected = categorySelect.value;
+
+    const module = await import(categories[selected]);
+
+    currentData = module[Object.keys(module)[0]];
+
+    populateQuestions();
+}
+
+
+// Populate question dropdown
+function populateQuestions(){
 
     subCategorySelect.innerHTML = "";
 
-    let selectedCategory = categorySelect.value;
-
-    let subs = topics[selectedCategory];
-
-    subs.forEach(function(sub){
+    for (let question in currentData){
 
         let option = document.createElement("option");
-        option.value = sub;
-        option.text = sub;
+        option.value = question;
+        option.text = question;
 
         subCategorySelect.appendChild(option);
+    }
+
+    populateVersions();
+}
+
+
+// Populate version dropdown
+function populateVersions(){
+
+    versionSelect.innerHTML = "";
+
+    let question = subCategorySelect.value;
+
+    let versions = currentData[question];
+
+    versions.forEach(v => {
+
+        let option = document.createElement("option");
+        option.value = v;
+        option.text = v;
+
+        versionSelect.appendChild(option);
+
     });
 
 }
 
 
-// ----- EVENT LISTENERS -----
+// Event listeners
+categorySelect.addEventListener("change", loadCategory);
+subCategorySelect.addEventListener("change", populateVersions);
 
-categorySelect.addEventListener("change", loadSubCategories);
 
-
-// ----- START -----
-document.addEventListener("DOMContentLoaded",function(){
+// Start
 loadCategories();
-});
+loadCategory();
