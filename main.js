@@ -1,87 +1,196 @@
-const categorySelect = document.getElementById("categorySelect");
-const subCategorySelect = document.getElementById("subCategorySelect");
-const versionSelect = document.getElementById("versionSelect");
-const partSelect = document.getElementById("partSelect");
+// main.js
 
-const categories = {
-    "Homework 3": "./homework3/guide.js"
-};
+const hwSelect        = document.getElementById("hw-select");
+const qSelect         = document.getElementById("q-select");
+const partSelect      = document.getElementById("part-select");
+const versionSelect   = document.getElementById("version-select");
+const promptBox       = document.getElementById("prompt-box");
+const inputsContainer = document.getElementById("inputs-container");
+const checkBtn        = document.getElementById("check-btn");
+const resultDiv       = document.getElementById("result");
 
-let currentData = null;
+// Tracks which input indices have already been answered correctly
+let lockedCorrect = [];
 
+// ── Helpers ────────────────────────────────────────────────────────────────
 
-// Populate category dropdown
-function loadCategories(){
-
-    for (let category in categories){
-
-        let option = document.createElement("option");
-        option.value = category;
-        option.text = category;
-
-        categorySelect.appendChild(option);
-    }
+function getGuide() {
+  const hw = hwSelect.value;
+  return (window.homeworkGuides && hw) ? window.homeworkGuides[hw] : null;
 }
 
-
-// Load category file
-async function loadCategory(){
-
-    const selected = categorySelect.value;
-
-    const module = await import(categories[selected]);
-
-    currentData = module[Object.keys(module)[0]];
-
-    populateQuestions();
+function getPartData() {
+  const guide = getGuide();
+  const q     = qSelect.value;
+  const part  = partSelect.value;
+  if (!guide || !q || !part) return null;
+  return guide.questions[q]?.[part] ?? null;
 }
 
-
-// Populate question dropdown
-function populateQuestions(){
-
-    subCategorySelect.innerHTML = "";
-
-    for (let question in currentData){
-
-        let option = document.createElement("option");
-        option.value = question;
-        option.text = question;
-
-        subCategorySelect.appendChild(option);
-    }
-
-    populateVersions();
+function checkNumber(studentVal, correctVal, tolerance) {
+  if (isNaN(studentVal)) return false;
+  const tol = tolerance ?? 0.02;
+  // Handle zero correct answer — use absolute tolerance of 1e-9
+  if (correctVal === 0) return Math.abs(studentVal) < 1e-9;
+  return Math.abs((studentVal - correctVal) / correctVal) <= tol;
 }
 
+function checkText(studentVal, correctVal) {
+  return studentVal.trim().toLowerCase() === String(correctVal).trim().toLowerCase();
+}
 
-// Populate version dropdown
-function populateVersions(){
+// ── Reset ──────────────────────────────────────────────────────────────────
 
-    versionSelect.innerHTML = "";
+function resetBelow(level) {
+  if (level === "hw") {
+    qSelect.innerHTML    = '<option value="">-- Select --</option>';
+    partSelect.innerHTML = '<option value="">-- Select --</option>';
+  }
+  if (level === "hw" || level === "q") {
+    partSelect.innerHTML = '<option value="">-- Select --</option>';
+  }
+  promptBox.style.display   = "none";
+  inputsContainer.innerHTML = "";
+  checkBtn.style.display    = "none";
+  resultDiv.innerHTML       = "";
+  lockedCorrect             = [];
+}
 
-    let question = subCategorySelect.value;
+// ── Dropdown population ────────────────────────────────────────────────────
 
-    let versions = currentData[question];
+hwSelect.addEventListener("change", () => {
+  resetBelow("hw");
+  const guide = getGuide();
+  if (!guide) return;
 
-    versions.forEach(v => {
-
-        let option = document.createElement("option");
-        option.value = v;
-        option.text = v;
-
-        versionSelect.appendChild(option);
-
+  Object.keys(guide.questions)
+    .sort((a, b) => Number(a) - Number(b))
+    .forEach(q => {
+      const opt = document.createElement("option");
+      opt.value = q;
+      opt.textContent = `Question ${q}`;
+      qSelect.appendChild(opt);
     });
+});
 
+qSelect.addEventListener("change", () => {
+  resetBelow("q");
+  const guide = getGuide();
+  const q     = qSelect.value;
+  if (!guide || !q) return;
+
+  Object.keys(guide.questions[q])
+    .sort()
+    .forEach(p => {
+      const opt = document.createElement("option");
+      opt.value = p;
+      opt.textContent = `Part ${p.toUpperCase()}`;
+      partSelect.appendChild(opt);
+    });
+});
+
+partSelect.addEventListener("change",  renderInputs);
+versionSelect.addEventListener("change", renderInputs);
+
+// ── Render input fields ────────────────────────────────────────────────────
+
+function renderInputs() {
+  promptBox.style.display   = "none";
+  inputsContainer.innerHTML = "";
+  checkBtn.style.display    = "none";
+  resultDiv.innerHTML       = "";
+  lockedCorrect             = [];
+
+  const partData = getPartData();
+  const version  = versionSelect.value;
+  if (!partData || !version) return;
+
+  // Show concept prompt
+  promptBox.textContent   = partData.prompt;
+  promptBox.style.display = "block";
+
+  // Build one input per entry
+  partData.inputs.forEach((inp, i) => {
+    const isText = inp.type === "text";
+    const group  = document.createElement("div");
+    group.className = "input-group";
+    group.id = `group-${i}`;
+    group.innerHTML = `
+      <label for="ans-${i}">${inp.label}</label>
+      <input
+        type="${isText ? "text" : "number"}"
+        id="ans-${i}"
+        placeholder="Enter ${inp.label}"
+        ${isText ? "" : 'step="any"'}
+        autocomplete="off"
+      />
+      <div class="type-hint">
+        ${isText
+          ? "Text answer — exact match required (case-insensitive)"
+          : `Numerical — within ±${((inp.tolerance ?? 0.02) * 100).toFixed(0)}% accepted`}
+      </div>
+    `;
+    inputsContainer.appendChild(group);
+  });
+
+  checkBtn.style.display = "block";
 }
 
+// ── Check answers ──────────────────────────────────────────────────────────
 
-// Event listeners
-categorySelect.addEventListener("change", loadCategory);
-subCategorySelect.addEventListener("change", populateVersions);
+checkBtn.addEventListener("click", () => {
+  const partData = getPartData();
+  const version  = versionSelect.value;
+  if (!partData || !version) return;
 
+  const correct = partData.versions[version];
+  resultDiv.innerHTML = "";
 
-// Start
-loadCategories();
-loadCategory();
+  let allCorrect = true;
+
+  partData.inputs.forEach((inp, i) => {
+    const inputEl  = document.getElementById(`ans-${i}`);
+    const resultRow = document.createElement("div");
+    resultRow.className = "result-row";
+
+    // Already locked from a previous attempt
+    if (lockedCorrect.includes(i)) {
+      resultRow.className += " correct";
+      resultRow.textContent = `✔ ${inp.label}: Already correct ✓`;
+      resultDiv.appendChild(resultRow);
+      return;
+    }
+
+    const raw       = inputEl.value;
+    const isText    = inp.type === "text";
+    const isCorrect = isText
+      ? checkText(raw, correct[i])
+      : checkNumber(parseFloat(raw), correct[i], inp.tolerance);
+
+    if (raw === "" || raw === null) {
+      resultRow.className += " empty";
+      resultRow.textContent = `⚠ ${inp.label}: No answer entered.`;
+      allCorrect = false;
+    } else if (isCorrect) {
+      resultRow.className += " correct";
+      resultRow.textContent = `✔ ${inp.label}: Correct!`;
+      lockedCorrect.push(i);          // lock this input
+      inputEl.disabled = true;        // grey it out visually
+    } else {
+      resultRow.className += " incorrect";
+      resultRow.textContent = isText
+        ? `✘ ${inp.label}: Incorrect — check your wording and try again.`
+        : `✘ ${inp.label}: Incorrect — check your value and try again.`;
+      allCorrect = false;
+    }
+
+    resultDiv.appendChild(resultRow);
+  });
+
+  // If everything is correct, update the button
+  if (allCorrect || lockedCorrect.length === partData.inputs.length) {
+    checkBtn.textContent    = "✔ All Correct!";
+    checkBtn.style.background = "#0d6e3f";
+    checkBtn.disabled       = true;
+  }
+});
