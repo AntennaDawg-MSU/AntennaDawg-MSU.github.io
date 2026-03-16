@@ -1,7 +1,7 @@
 // homework3/guide.js
-const homeworkGuides = window.homeworkGuides || {};
+wildonw.HomeworkGuides = window.homeworkGuides || {};
 
-homeworkGuides[3] = {
+window.homeworkGuides[3] = {
   title: "Homework 3",
   questions: {
     1: {
