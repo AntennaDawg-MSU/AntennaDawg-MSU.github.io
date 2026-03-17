@@ -74,20 +74,92 @@ window.homeworkGuides[3] = {
         
       }
     },
-    2: {
-      a: {
-        prompt: "Enter the capacitance C (pF) and voltage V (V).",
+  2: {
+      I: {
+        prompt: "Is this dipole considered Hertzian?",
         inputs: [
-          { label: "C (pF)", type: "number", tolerance: 0.02 },
-          { label: "V (V)",  type: "number", tolerance: 0.02 }
+          { label: "Answer (Yes or No):",      type: "text"}
         ],
         versions: {
-          1: [47.0, 12.0],
-          2: [33.0,  9.0],
-          3: [56.0, 15.0],
-          4: [22.0, 18.0]
+          a: ["Yes"],
+          b: ["Yes"],
+          c: ["Yes"],
+          d: ["Yes"],
+          e: ["Yes"]
         }
+      },
+      II: {
+        prompt: "What is the amount of current needed?",
+        inputs: [
+          { label: "mA", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [1097.173],
+          b: [231.061],
+          c: [816.252],
+          d: [1456.205],
+          e: [11.287]
+        }
+      },
+      III: {
+        prompt: "What is the amount of power loss?",
+        inputs: [
+          { label: "micro W", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [137.402],
+          b: [23513.836],
+          c: [44420.573],
+          d: [1.213739],
+          e: [16.082]
+        }
+        
+      },
+      IV: {
+        prompt: "What is efficiency?",
+        inputs: [
+          { label: "%", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [99.981],
+          b: [99.509],
+          c: [97.617],
+          d: [100],
+          e: [99.9891]
+        }
+        
+      },
+      V: {
+        prompt: "What is the power density?",
+        inputs: [
+          { label: "pW/m^2 (p = 10^-12)", type: "number", tolerance: 0.05 }
+        ],
+        versions: {
+          a: [141.577],
+          b: [85551.719],
+          c: [89.343],
+          d: [5.547],
+          e: [0.003]
+        }
+        
       }
+    },
+    3: {
+      I: {
+        prompt: "What is the phase shift?",
+        inputs: [
+          { label: "Answer (Yes or No):",      type: "number", tolerance: 0.05}
+        ],
+        versions: {
+          a: [-48.793],
+          b: [1231.938],
+          c: [51.419],
+          d: [-752.030],
+          e: [-64.951]
+        }
+      },
+      
     }
+    
   }
 };
