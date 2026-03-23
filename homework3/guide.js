@@ -91,27 +91,27 @@ window.homeworkGuides[3] = {
       II: {
         prompt: "What is the amount of current needed?",
         inputs: [
-          { label: "mA", type: "number", tolerance: 0.05 }
+          { label: "A", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          a: [231.061],
-          b: [816.252],
-          c: [1456.205],
-          d: [11.287],
-          e: [8.015]
+          a: [3.142],
+          b: [10.579],
+          c: [6.532],
+          d: [2.536],
+          e: [0.323]
         }
       },
       III: {
         prompt: "What is the amount of power loss?",
         inputs: [
-          { label: "micro W", type: "number", tolerance: 0.05 }
+          { label: "mW", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          a: [137.402],
-          b: [23513.836],
-          c: [44420.573],
-          d: [1.213739],
-          e: [16.082]
+          a: [25.14],
+          b: [3949.940],
+          c: [893.884],
+          d: [61.260975],
+          e: [26.074]
         }
         
       },
@@ -121,25 +121,25 @@ window.homeworkGuides[3] = {
           { label: "%", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          a: [99.981],
-          b: [99.509],
-          c: [97.617],
-          d: [100],
-          e: [99.9891]
+          a: [96.64],
+          b: [54.702],
+          c: [67.063],
+          d: [85.851],
+          e: [36.037]
         }
         
       },
       V: {
         prompt: "What is the power density?",
         inputs: [
-          { label: "pW/m^2 (p = 10^-12)", type: "number", tolerance: 0.05 }
+          { label: "nW/m^2 (n = 10^-9)", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          a: [141.577],
-          b: [85551.719],
-          c: [89.343],
-          d: [5.547],
-          e: [0.003]
+          a: [26.186],
+          b: [14371.292],
+          c: [1.798],
+          d: [279.969],
+          e: [0.005]
         }
         
       }
