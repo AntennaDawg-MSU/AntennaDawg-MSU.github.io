@@ -25,7 +25,7 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          a: [0.608],
+          red: [0.608],
           b: [-0.539],
           c: [0.132],
           d: [0.522],
