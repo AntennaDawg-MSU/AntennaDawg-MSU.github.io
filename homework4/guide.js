@@ -1,7 +1,7 @@
-// homework3/guide.js
+// homework4/guide.js
 window.homeworkGuides = window.homeworkGuides || {};
 
-window.homeworkGuides[3] = {
+window.homeworkGuides[4] = {
   title: "Homework 4 - Pink Floyd's Dark Side of the Moon",
   questions: {
     1: {
