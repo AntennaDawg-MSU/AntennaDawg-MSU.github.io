@@ -22,7 +22,7 @@ window.homeworkGuides[4] = {
       II: {
         prompt: "Given that x = 2, what is the y value for the first wavelength for the ray exiting the prism?",
         inputs: [
-          { label: "m", type: "number", tolerance: 0.05 }
+          { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
           a: [0.608],
@@ -51,7 +51,7 @@ window.homeworkGuides[4] = {
       IV: {
         prompt: "Given that x = 2, what is the y value for the second wavelength for the ray exiting the prism?",
         inputs: [
-          { label: "y = ", type: "number", tolerance: 0.05 }
+          { label: "y = Y.YYY ", type: "number", tolerance: 0.05 }
         ],
         versions: {
           a: [0.505],
