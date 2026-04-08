@@ -25,12 +25,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [0.302],
-          "02-Orange": [0.250],
-          "03-Yellow": [0.210],
-          "04-Green": [0.124],
-          "05-Blue": [-0.007],
-          "06-Purple": [-0.150]
+          "01-Red": [0.234],
+          "02-Orange": [0.197],
+          "03-Yellow": [0.168],
+          "04-Green": [0.106],
+          "05-Blue": [0.014],
+          "06-Purple": [-0.087]
         }
       }
     },
@@ -55,12 +55,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [0.608],
-          "02-Orange": [0.578],
-          "03-Yellow": [0.554],
-          "04-Green": [0.505],
-          "05-Blue": [0.432],
-          "06-Purple": [0.355]
+          "01-Red": [0.463],
+          "02-Orange": [0.441],
+          "03-Yellow": [0.424],
+          "04-Green": [0.389],
+          "05-Blue": [0.336],
+          "06-Purple": [0.280]
         }
       }
     },
@@ -85,12 +85,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [-0.476],
-          "02-Orange": [-0.510],
-          "03-Yellow": [-0.539],
-          "04-Green": [-0.601],
-          "05-Blue": [-0.702],
-          "06-Purple": [-0.824]
+          "01-Red": [-0.330],
+          "02-Orange": [-0.354],
+          "03-Yellow": [-0.373],
+          "04-Green": [-0.416],
+          "05-Blue": [-0.484],
+          "06-Purple": [-0.566]
         }
       }
     },
@@ -115,12 +115,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [0.132],
-          "02-Orange": [0.072],
-          "03-Yellow": [0.024],
-          "04-Green": [-0.079],
-          "05-Blue": [-0.243],
-          "06-Purple": [-0.436]
+          "01-Red": [0.117],
+          "02-Orange": [0.074],
+          "03-Yellow": [0.040],
+          "04-Green": [-0.033],
+          "05-Blue": [-0.147],
+          "06-Purple": [-0.281]
         }
       }
     },
@@ -145,12 +145,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [0.573],
-          "02-Orange": [0.558],
-          "03-Yellow": [0.547],
-          "04-Green": [0.522],
-          "05-Blue": [0.486],
-          "06-Purple": [0.447]
+          "01-Red": [0.434],
+          "02-Orange": [0.423],
+          "03-Yellow": [0.415],
+          "04-Green": [0.397],
+          "05-Blue": [0.371],
+          "06-Purple": [0.342]
         }
       }
     },
@@ -175,12 +175,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [0.262],
-          "02-Orange": [0.160],
+          "01-Red": [0.209],
+          "02-Orange": [0.136],
           "03-Yellow": [0.078],
-          "04-Green": [-0.098],
-          "05-Blue": [-0.390],
-          "06-Purple": [-0.801]
+          "04-Green": [-0.046],
+          "05-Blue": [-0.250],
+          "06-Purple": [-0.531]
         }
       }
     },
@@ -205,12 +205,12 @@ window.homeworkGuides[4] = {
           { label: "y=Y.YYY", type: "number", tolerance: 0.05 }
         ],
         versions: {
-          "01-Red": [-0.432],
-          "02-Orange": [-0.483],
-          "03-Yellow": [-0.525],
-          "04-Green": [-0.620],
-          "05-Blue": [-0.784],
-          "06-Purple": [-1.005]
+          "01-Red": [-0.293],
+          "02-Orange": [-0.328],
+          "03-Yellow": [-0.357],
+          "04-Green": [-0.421],
+          "05-Blue": [-0.532],
+          "06-Purple": [-0.680]
         }
       }
     }  
