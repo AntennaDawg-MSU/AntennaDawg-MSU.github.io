@@ -1,7 +1,7 @@
 // homework5/guide.js
 window.homeworkGuides = window.homeworkGuides || {};
 
-window.homeworkGuides[5] = {
+window.homeworkGuides[6] = {
   title: "Homework 5",
   questions: {
     1: {
