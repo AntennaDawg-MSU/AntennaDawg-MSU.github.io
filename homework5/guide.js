@@ -164,11 +164,11 @@ window.homeworkGuides[6] = {
           {  label: "dBuV/m", type: "number", tolerance: 0.05}
         ],
         versions: {
-          a: [34.981],
-          b: [25.667],
-          c: [39.418],
-          d: [43.924],
-          e: [44.665]
+          a: [-11.588],
+          b: [-76.167],
+          c: [-176.95],
+          d: [-136.068],
+          e: [-126.712]
         }
       }, 
     IV: {
@@ -177,11 +177,11 @@ window.homeworkGuides[6] = {
           {  label: "dBuV/m (value >0 if pass, value <0 if fail)", type: "number", tolerance: 0.05}
         ],
         versions: {
-          a: [2.575],
-          b: [-1.507],
-          c: [0.452],
-          d: [-0.957],
-          e: [9.625]
+          a: [49.144],
+          b: [107.327],
+          c: [214.278],
+          d: [180.492],
+          e: [182.461]
         }
         
       }  
