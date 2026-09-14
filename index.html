@@ -126,6 +126,8 @@
         <label for="hw-select">Homework #</label>
         <select id="hw-select">
           <option value="">-- Select --</option>
+          <option value="1">Homework 1</option>
+          <option value="2">Homework 2</option>
           <option value="3">Homework 3</option>
           <option value="4"> Homework 4 - Pink Floyd </option>
           <option value="5"> Homework 4 - Finite Difference Technique </option>
@@ -142,17 +144,17 @@
         <select id="q-select"><option value="">-- Select --</option></select>
       </div>
       <div>
-        <label for="part-select">Part</label>
-        <select id="part-select"><option value="">-- Select --</option></select>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div>
         <label for="version-select">Version</label>
         <select id="version-select">
           <option value="">-- Select --</option>
         </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="part-select">Part</label>
+        <select id="part-select"><option value="">-- Select --</option></select>
       </div>
     </div>
     
@@ -164,6 +166,8 @@
   </div>
   <script> window.homeworkGuides = {}; </script>
   <!-- Guide files: add one line per homework set -->
+  <script src="homework1/guide.js"></script>
+  <script src="homework2/guide.js"></script>
   <script src="homework3/guide.js"></script>
   <script src="homework4/guide_pf.js"></script>
   <script src="homework4/guide_fdt.js"></script>
